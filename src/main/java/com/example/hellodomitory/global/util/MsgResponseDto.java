@@ -1,4 +1,4 @@
-package global.util;
+package com.example.hellodomitory.global.util;
 
 import lombok.Getter;
 
