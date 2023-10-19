@@ -1,8 +1,8 @@
-package com.example.hellodomitory.user.service;
+package com.example.hellodomitory.domain.user.service;
 
 import com.example.hellodomitory.global.exception.CustomException;
 import com.example.hellodomitory.global.exception.ErrorCode;
-import com.example.hellodomitory.user.dto.request.LoginRequest;
+import com.example.hellodomitory.domain.user.dto.request.LoginRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

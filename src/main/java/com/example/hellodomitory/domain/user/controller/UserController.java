@@ -1,9 +1,9 @@
-package com.example.hellodomitory.user.controller;
+package com.example.hellodomitory.domain.user.controller;
 
+import com.example.hellodomitory.domain.user.dto.request.LoginRequest;
+import com.example.hellodomitory.domain.user.service.UserService;
 import com.example.hellodomitory.global.Jwt.JwtUtil;
 import com.example.hellodomitory.global.util.MsgResponseDto;
-import com.example.hellodomitory.user.dto.request.LoginRequest;
-import com.example.hellodomitory.user.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.hellodomitory.user.dto.request;
+package com.example.hellodomitory.domain.user.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
