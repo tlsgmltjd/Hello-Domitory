@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping(path = "/auth", consumes = "application/json")
 @RequiredArgsConstructor
 public class UserController {
 
