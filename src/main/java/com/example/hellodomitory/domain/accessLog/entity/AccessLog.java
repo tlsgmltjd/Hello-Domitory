@@ -2,12 +2,17 @@ package com.example.hellodomitory.domain.accessLog.entity;
 
 import com.example.hellodomitory.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@EntityListeners(AuditingEntityListener.class)
 public class AccessLog {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
