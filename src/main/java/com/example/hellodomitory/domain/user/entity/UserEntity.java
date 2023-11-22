@@ -1,13 +1,12 @@
 package com.example.hellodomitory.domain.user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.hellodomitory.domain.accessLog.entity.AccessLog;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
 @Getter
+@Table(name = "users")
 public class UserEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
