@@ -6,6 +6,7 @@ import com.example.hellodomitory.domain.user.entity.UserEntity;
 import com.example.hellodomitory.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -16,8 +17,10 @@ public class AccessLogService {
     private final AccessLogRepository accessLogRepository;
     private final UserRepository userRepository;
 
+    @Transactional
     public void initAccessLog() {
         List<UserEntity> users = userRepository.findAll();
+
         List<AccessLog> accessLogs = users.stream().map(user ->
                 AccessLog.builder()
                         .enter(false)
@@ -26,6 +29,7 @@ public class AccessLogService {
                         .build()
         ).toList();
 
+        accessLogRepository.deleteAll();
         accessLogRepository.saveAll(accessLogs);
     }
 
