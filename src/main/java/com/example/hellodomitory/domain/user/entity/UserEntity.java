@@ -12,6 +12,7 @@ public class UserEntity {
     private Long id;
     private String name;
     private Integer grade;
+    @Enumerated(EnumType.STRING)
     private Grade gender;
     private Integer timeout;
 }
