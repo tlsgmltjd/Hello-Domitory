@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://ep-shrill-surf-14658469.ap-southeast-1.aws.neon.tech/gsmdb
     username: s23012
-    password: ${DB_PASSWORD}
+    password: NRbwL3G6Ptjg
   jpa:
     hibernate:
       ddl-auto: update
