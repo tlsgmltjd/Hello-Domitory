@@ -37,4 +37,11 @@ public class AccessLog {
         this.logTime = null;
         return this;
     }
+
+    public void enter(boolean isLate) {
+        this.enter = true;
+        if (isLate) {
+            this.late = true;
+        }
+    }
 }
