@@ -8,8 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +20,12 @@ public class AccessLogService {
 
     @Transactional
     public void initAccessLog() {
-        List<UserEntity> users = userRepository.findAll();
+        Integer savedDate = accessLogRepository.findById(1L).get().getLogTime().getDayOfMonth();
+        if (savedDate >= LocalDate.now().getDayOfMonth()) throw new RuntimeException();
 
-        List<AccessLog> accessLogs = users.stream().map(user ->
-                AccessLog.builder()
-                        .enter(false)
-                        .late(false)
-                        .userId(user)
-                        .build()
-        ).toList();
+        List<AccessLog> accessLogs = accessLogRepository.findAll().stream()
+                .map(accessLog -> accessLog.init() ).toList();
 
-        accessLogRepository.deleteAll();
         accessLogRepository.saveAll(accessLogs);
     }
 

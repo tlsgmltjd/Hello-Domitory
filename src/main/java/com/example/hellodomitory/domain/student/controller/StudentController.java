@@ -19,14 +19,4 @@ public class StudentController {
 
     private final JwtUtil jwtUtil;
 
-    @GetMapping("/test")
-    public ResponseEntity<MsgResponseDto> test(HttpServletRequest request) {
-        String token = jwtUtil.getJwtFromHeader(request);
-        if (jwtUtil.validateToken(token)) {
-            return ResponseEntity.ok(new MsgResponseDto("성공입니다.", HttpStatus.OK.value()));
-        } else {
-            throw new CustomException(NOT_OK_TOKEN);
-        }
-
-    }
 }

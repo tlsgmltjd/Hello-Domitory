@@ -51,3 +51,25 @@ INSERT INTO users (name, grade, gender, timeout) VALUES ('전민혁', 1, 'MALE',
 
 -- 정성찬
 INSERT INTO users (name, grade, gender, timeout) VALUES ('정성찬', 1, 'MALE', 0);
+
+---
+
+INSERT INTO access_log (enter, late, user_id, log_time) VALUES
+                                                            (FALSE, FALSE, 1, NOW()),
+                                                            (FALSE, FALSE, 2, NOW()),
+                                                            (FALSE, FALSE, 3, NOW()),
+                                                            (FALSE, FALSE, 4, NOW()),
+                                                            (FALSE, FALSE, 5, NOW()),
+                                                            (FALSE, FALSE, 6, NOW()),
+                                                            (FALSE, FALSE, 7, NOW()),
+                                                            (FALSE, FALSE, 8, NOW()),
+                                                            (FALSE, FALSE, 9, NOW()),
+                                                            (FALSE, FALSE, 10, NOW()),
+                                                            (FALSE, FALSE, 11, NOW()),
+                                                            (FALSE, FALSE, 12, NOW()),
+                                                            (FALSE, FALSE, 13, NOW()),
+                                                            (FALSE, FALSE, 14, NOW()),
+                                                            (FALSE, FALSE, 15, NOW()),
+                                                            (FALSE, FALSE, 16, NOW()),
+                                                            (FALSE, FALSE, 17, NOW()),
+                                                            (FALSE, FALSE, 18, NOW());
