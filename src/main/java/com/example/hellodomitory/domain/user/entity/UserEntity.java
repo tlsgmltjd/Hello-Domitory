@@ -1,6 +1,5 @@
 package com.example.hellodomitory.domain.user.entity;
 
-import com.example.hellodomitory.domain.accessLog.entity.AccessLog;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -13,11 +12,7 @@ public class UserEntity {
     private String name;
     private Integer grade;
     @Enumerated(EnumType.STRING)
-    private Grade gender;
+    private Gender gender;
     private Integer timeout;
 }
 
-enum Grade {
-    FEMALE,
-    MALE
-}

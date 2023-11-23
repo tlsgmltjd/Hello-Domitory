@@ -1,20 +1,17 @@
 package com.example.hellodomitory.domain.accessLog.service;
 
+import com.example.hellodomitory.domain.accessLog.dto.respose.AccessLogsResponse;
 import com.example.hellodomitory.domain.accessLog.entity.AccessLog;
 import com.example.hellodomitory.domain.accessLog.repository.AccessLogRepository;
-import com.example.hellodomitory.domain.user.entity.UserEntity;
-import com.example.hellodomitory.domain.user.repository.UserRepository;
-import com.example.hellodomitory.global.Jwt.JwtUtil;
-import com.example.hellodomitory.global.exception.CustomException;
-import com.example.hellodomitory.global.exception.ErrorCode;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +28,21 @@ public class AccessLogService {
                 .map(accessLog -> accessLog.init() ).toList();
 
         accessLogRepository.saveAll(accessLogs);
+    }
+
+    @Transactional
+    public List<AccessLogsResponse> findAccessLog() {
+        return accessLogRepository.findAll().stream()
+                .map(accessLog ->
+                        AccessLogsResponse.builder()
+                                .id(accessLog.getId())
+                                .enter(accessLog.getEnter())
+                                .late(accessLog.getLate())
+                                .name(accessLog.getUserId().getName())
+                                .grade(accessLog.getUserId().getGrade())
+                                .gender(accessLog.getUserId().getGender())
+                                .date(accessLog.getLogTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss"))
+                        ).build()).toList();
     }
 
 }
