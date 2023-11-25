@@ -42,10 +42,10 @@ public class JwtUtil {
 
         // 암호화
         return BEARER_PREFIX + Jwts.builder()
-                        .setSubject(username)               // 사용자 식별자값(ID). 여기에선 username 을 넣음
-                        .setExpiration(new Date(date.getTime() + TOKEN_TIME))   // 만료 시간 : 현재시간 date.getTime() + 위에서 지정한 토큰 만료시간(60분)
-                        .setIssuedAt(date)                  // 발급일
-                        .signWith(key, signatureAlgorithm)  // 암호화 알고리즘 (Secret key, 사용할 알고리즘 종류)
+                        .setSubject(username)
+                        .setExpiration(new Date(date.getTime() + TOKEN_TIME))
+                        .setIssuedAt(date)
+                        .signWith(key, signatureAlgorithm)
                         .compact();
     }
 

@@ -24,8 +24,8 @@ public class StudentController {
 
     @PostMapping("/enter")
     public ResponseEntity<EnterResponse> enterStudent(HttpServletRequest httpServletRequest, @RequestBody EnterRequest request) {
-        String token = jwtUtil.getJwtFromHeader(httpServletRequest);
-        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
+//        String token = jwtUtil.getJwtFromHeader(httpServletRequest);
+//        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
 
         return ResponseEntity.ok(studentService.studentEnter(request.getId()));
     }

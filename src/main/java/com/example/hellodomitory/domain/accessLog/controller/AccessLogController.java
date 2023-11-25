@@ -24,8 +24,8 @@ public class AccessLogController {
 
     @GetMapping("/reset")
     public ResponseEntity<MsgResponseDto> accessLogInit(HttpServletRequest request) {
-        String token = jwtUtil.getJwtFromHeader(request);
-        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
+//        String token = jwtUtil.getJwtFromHeader(request);
+//        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
 
         accessLogService.initAccessLog();
         return ResponseEntity.ok(new MsgResponseDto("초기화 완료", HttpStatus.NO_CONTENT.value()));
@@ -33,8 +33,8 @@ public class AccessLogController {
 
     @GetMapping
     public ResponseEntity<List<AccessLogsResponse>> accessLogFind(HttpServletRequest request) {
-        String token = jwtUtil.getJwtFromHeader(request);
-        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
+//        String token = jwtUtil.getJwtFromHeader(request);
+//        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
 
         return ResponseEntity.ok(accessLogService.findAccessLog());
     }
