@@ -27,6 +27,6 @@ public class StudentController {
 //        String token = jwtUtil.getJwtFromHeader(httpServletRequest);
 //        if (token == null || !jwtUtil.validateToken(token)) throw new CustomException(ErrorCode.NOT_OK_TOKEN);
 
-        return ResponseEntity.ok(studentService.studentEnter(request.getId()));
+        return ResponseEntity.ok(studentService.studentEnter((long) request.getId()));
     }
 }

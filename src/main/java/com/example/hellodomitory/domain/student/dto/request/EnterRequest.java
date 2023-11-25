@@ -6,5 +6,5 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class EnterRequest {
-    private Long id;
+    private Integer id;
 }
