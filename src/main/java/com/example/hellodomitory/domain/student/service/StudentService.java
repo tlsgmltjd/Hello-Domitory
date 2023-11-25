@@ -36,6 +36,10 @@ public class StudentService {
         accessLog.enter(isLate);
         accessLogRepository.save(accessLog);
 
-        return new EnterResponse(isLate);
+        return EnterResponse.builder()
+                .grade(user.getGrade())
+                .name(user.getName())
+                .late(isLate)
+                .build();
     }
 }
