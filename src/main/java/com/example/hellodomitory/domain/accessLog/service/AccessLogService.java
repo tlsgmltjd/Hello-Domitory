@@ -20,9 +20,8 @@ public class AccessLogService {
 
     @Transactional
     public void initAccessLog() {
-
-        Integer savedDate = accessLogRepository.findById(1L).get().getLogTime().getDayOfMonth();
-        if (savedDate >= LocalDate.now().getDayOfMonth()) throw new RuntimeException();
+//        Integer savedDate = accessLogRepository.findById(1L).get().getLogTime().getDayOfMonth();
+//        if (savedDate >= LocalDate.now().getDayOfMonth()) throw new RuntimeException();
 
         List<AccessLog> accessLogs = accessLogRepository.findAll().stream()
                 .map(accessLog -> accessLog.init() ).toList();

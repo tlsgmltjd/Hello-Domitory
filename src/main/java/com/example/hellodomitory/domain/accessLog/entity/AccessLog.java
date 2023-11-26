@@ -3,11 +3,13 @@ package com.example.hellodomitory.domain.accessLog.entity;
 import com.example.hellodomitory.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity
 @Getter
@@ -28,18 +30,19 @@ public class AccessLog {
     private Boolean late;
 
     @Column(name = "log_time")
-    @UpdateTimestamp
+    @CreationTimestamp
     private LocalDateTime logTime;
 
     public AccessLog init() {
         this.enter = false;
         this.late = false;
-        this.logTime = null;
+        this.logTime = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
         return this;
     }
 
     public void enter(boolean isLate) {
         this.enter = true;
+        this.logTime = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
         if (isLate) {
             this.late = true;
         }

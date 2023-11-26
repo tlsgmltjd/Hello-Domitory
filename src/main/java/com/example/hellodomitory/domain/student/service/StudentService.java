@@ -11,7 +11,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.chrono.ChronoLocalDateTime;
 
 
 @Service
@@ -32,7 +35,7 @@ public class StudentService {
         AccessLog accessLog = accessLogRepository.findByUserId(user)
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
 
-        boolean isLate = LocalTime.now().isAfter(LocalTime.of(21, 35));
+        boolean isLate = LocalDateTime.now(ZoneId.of("Asia/Seoul")).toLocalTime().isAfter(LocalTime.of(21, 35));
         accessLog.enter(isLate);
         accessLogRepository.save(accessLog);
 
