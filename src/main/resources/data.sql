@@ -54,6 +54,14 @@ INSERT INTO users (name, grade, gender, timeout) VALUES ('정성찬', 1, 'MALE',
 
 ---
 
+-- 김민영 ⭐️
+INSERT INTO users (id, name, grade, gender, timeout) VALUES (1004, '김민영', 4, 'FEMALE', 0);
+
+-- 김은영 ⭐️
+INSERT INTO users (id, name, grade, gender, timeout) VALUES (777, '임은영', 4, 'FEMALE', 0);
+
+---
+
 INSERT INTO access_log (enter, late, user_id, log_time) VALUES
                                                             (FALSE, FALSE, 1, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
                                                             (FALSE, FALSE, 2, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
@@ -72,4 +80,6 @@ INSERT INTO access_log (enter, late, user_id, log_time) VALUES
                                                             (FALSE, FALSE, 15, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
                                                             (FALSE, FALSE, 16, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
                                                             (FALSE, FALSE, 17, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
-                                                            (FALSE, FALSE, 18, (current_timestamp AT TIME ZONE 'Asia/Seoul'));
+                                                            (FALSE, FALSE, 18, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
+                                                            (FALSE, FALSE, 1004, (current_timestamp AT TIME ZONE 'Asia/Seoul')),
+                                                            (FALSE, FALSE, 777, (current_timestamp AT TIME ZONE 'Asia/Seoul'));
